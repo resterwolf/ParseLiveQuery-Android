@@ -15,11 +15,11 @@ import org.json.JSONObject;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executor;
 
 import bolts.Continuation;
@@ -38,7 +38,7 @@ class ParseLiveQueryClientImpl implements ParseLiveQueryClient {
     private final WebSocketClientFactory webSocketClientFactory;
     private final WebSocketClient.WebSocketClientCallback webSocketClientCallback;
 
-    private final List<ParseLiveQueryClientCallbacks> mCallbacks = new ArrayList<>();
+    private final List<ParseLiveQueryClientCallbacks> mCallbacks = new CopyOnWriteArrayList<>();
 
     private WebSocketClient webSocketClient;
     private int requestIdCount = 1;
